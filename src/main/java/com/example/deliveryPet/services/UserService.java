@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
+import java.util.List;
+
 @Service
 public class UserService {
 
@@ -19,7 +21,12 @@ public class UserService {
     InputValid inputValid;
 
 
-@ExceptionHandler
+public List<User> findAllUsers(){
+    List<User> list=userRepository.findAll();
+    return list;
+}
+
+
     public User addUser(String email,String password){
     User user = new User(email,password);
 
