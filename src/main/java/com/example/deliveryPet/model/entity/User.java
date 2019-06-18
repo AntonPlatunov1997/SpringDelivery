@@ -28,9 +28,14 @@ public class User {
 
     @Column(name = "password")
 private String password;
-//
+
     @OneToMany(fetch = FetchType.LAZY,mappedBy = "user",cascade = CascadeType.ALL,orphanRemoval = true)
     private List<Cargo> cargoList = new ArrayList<>();
+
+    public User(String email, String password) {
+        this.email= email;
+        this.password=password;
+    }
 
     public Long getId() {
         return id;
