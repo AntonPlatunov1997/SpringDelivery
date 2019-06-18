@@ -1,14 +1,18 @@
 package com.example.deliveryPet.model.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
 @Table(name = "city")
 public class City {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // это стратегия автоинкримент
     private Long id;
 
     @Column(name = "city_name")
@@ -20,6 +24,16 @@ public class City {
     @Column(name = "longitude")
     private Double longitude;
 
+
+
+
+    @OneToMany(mappedBy = "city", fetch = FetchType.LAZY, cascade = CascadeType.DETACH, orphanRemoval = true)
+    private List<Cargo> listCityFrom;
+
+    @OneToMany(mappedBy = "city", fetch = FetchType.EAGER, cascade = CascadeType.DETACH, orphanRemoval = true)
+    private List<Cargo> listCityTo;
+
+
     public City() {
     }
 
@@ -27,6 +41,8 @@ public class City {
         this.latitude = latitude;
         this.longitude = longitude;
     }
+
+
 
     public Long getId() {
         return id;

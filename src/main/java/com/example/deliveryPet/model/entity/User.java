@@ -44,8 +44,10 @@ public class User {
     @Column(name = "password")
 private String password;
 
-    @OneToMany(fetch = FetchType.LAZY,mappedBy = "user",cascade = CascadeType.ALL,orphanRemoval = true)
-    private List<Cargo> cargoList = new ArrayList<>();
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.DETACH, orphanRemoval = true)
+    private List<Cargo> cargoList;
+
+
 
     public User(String email, String password) {
         this.email= email;
