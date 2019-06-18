@@ -12,6 +12,21 @@ import java.util.Objects;
 @Table(name = "user")
 public class User {
 
+    public User() {
+    }
+
+    public User(Long id,String email , String password,String role) {
+        this.id=id;
+        this.email = email;
+        this.password = password;
+        this.role= Role.valueOf(role);
+    }
+
+
+    public User(String email) {
+        this.email = email;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // это стратегия автоинкримент
     private Long id;
