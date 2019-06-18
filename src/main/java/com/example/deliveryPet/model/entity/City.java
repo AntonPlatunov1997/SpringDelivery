@@ -20,8 +20,13 @@ public class City {
     @Column(name = "longitude")
     private Double longitude;
 
+    public City() {
+    }
 
-
+    public City(Double latitude, Double longitude) {
+        this.latitude = latitude;
+        this.longitude = longitude;
+    }
 
     public Long getId() {
         return id;
