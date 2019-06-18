@@ -25,9 +25,25 @@ public String index(){
 }
     @PostMapping("/createUser")
     public String createUser(@RequestParam(name = "email") String email,@RequestParam(name = "password") String password ) {
-        User user = new User(email,password);
-        userService.addUser(user);
+
+        userService.addUser(email,password);
         return "user";
 
     }
+
+
+    @GetMapping("/registr")
+    public String registration(){
+    return "registration";
+    }
+
+@PostMapping
+    public String registration(@RequestParam(name = "email") String email,@RequestParam(name = "password") String password ) {
+
+        userService.addUser(email,password);
+        return "user";
+
+    }
+
+
 }
