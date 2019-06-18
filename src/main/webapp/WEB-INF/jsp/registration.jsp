@@ -52,7 +52,7 @@
 
                             <span class="card-title black-text">SignUp</span>
 
-                            <form method="POST" action="${pageContext.request.contextPath}/registration" name="action">
+                            <form method="POST" action="/registr" name="action">
 
                                 <div class="row">
 
@@ -85,7 +85,7 @@
 
                                 <div class="card-action">
 
-                                    <input type="submit" class="btn light blue" value="registration.singUp">
+                                    <input type="submit" class="btn light blue" value="registration">
                                 </div>
                             </form>
                         </div>
